@@ -7,3 +7,4 @@ urlpatterns = [
     path('checkout/', views.checkout_page, name='checkout_page'),  # Maps to checkout page
     path('admin/', views.admin_page, name='admin_page'),  # Maps to admin page
 ]
+
