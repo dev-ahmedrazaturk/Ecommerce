@@ -25,9 +25,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Step 3: Cache dependencies to speed up installs
+      # Step 3: Cache Node modules (using actions/cache@v3)
       - name: Cache Node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -48,13 +48,5 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # Step 8: Upload build artifacts (optional)
-      # If you want to store build artifacts like logs or build files
-      # - name: Upload build artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: build
-      #     path: ./build
-
-      # Optional: Step 9 - Notify on failure or success (e.g., Slack integration)
+      # Optional: Step 8 - Notify on failure or success (e.g., Slack integration)
       # You can also integrate notification tools like Slack to alert on build failure/success
