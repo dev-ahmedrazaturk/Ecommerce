@@ -1,0 +1,10 @@
+image: python:3
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - pip install -r requirements.txt
+    - LT_USERNAME=<your LambdaTest username> LT_ACCESS_KEY=<your LambdaTest access key> python test.py
